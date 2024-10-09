@@ -7,8 +7,23 @@ import interactionPlugin from '@fullcalendar/interaction'; // Import interaction
 
 
 
-export default function Calendar() {
+export default function Calendar2() {
+    const Modal = ({ show, onClose, children }) => {
+        if (!show) {
+            return null;
+        }
 
+        return (
+            <div className="modal-overlay">
+                <div className="modal-content">
+                    <button className="modal-close" onClick={onClose}>
+                        &times;
+                    </button>
+                    <div className="modal-body">{children}</div>
+                </div>
+            </div>
+        );
+    };
     const [events, setEvents] = useState([
         { id: 1, title: 'Event 1', date: '2024-10-15' },
         { id: 2, title: 'Event 2', date: '2024-10-17' },
